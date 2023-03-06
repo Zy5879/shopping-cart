@@ -1,8 +1,11 @@
 function Home() {
   return (
-    <>
-      <h1>This is Home</h1>
-    </>
+    <main>
+      <div>
+        <h1>Discover Games</h1>
+        <button>Game Catalog</button>
+      </div>
+    </main>
   );
 }
 

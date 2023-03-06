@@ -1,9 +1,14 @@
+import games from "../games";
 function Products() {
-  return (
-    <>
-      <h1>This is products</h1>
-    </>
-  );
+  const gamesMap = games.map((item) => {
+    return (
+      <div key={item.id}>
+        <p>{item.title}</p>
+        <p>{item.price}</p>
+      </div>
+    );
+  });
+  return <div>{gamesMap}</div>;
 }
 
 export default Products;

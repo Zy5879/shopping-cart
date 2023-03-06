@@ -8,13 +8,13 @@ import { NavLink, Route, Routes } from "react-router-dom";
 function Navbar() {
   return (
     <>
-      <h1>Fake Store</h1>
+      <h1>Playstation Store</h1>
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/products">Games</NavLink>
         </li>
         <li>
           <NavLink to="/contact">Contact</NavLink>
