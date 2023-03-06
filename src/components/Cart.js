@@ -1,7 +1,13 @@
+import useShop from "../ShopContext";
+import GameCard from "./GameCard";
+
 function Cart() {
+  const { products } = useShop();
   return (
     <>
-      <h1>This is your Cart</h1>
+      {products.map((product, index) => (
+        <GameCard key={index} title={product.title} price={product.price} />
+      ))}
     </>
   );
 }
