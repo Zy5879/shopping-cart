@@ -1,9 +1,27 @@
 import useShop from "../ShopContext";
 
 function Cart() {
-  const { products, total, removeQuantity, removeFromCart } = useShop();
+  const { products, total, removeQuantity, removeFromCart, updateQty } =
+    useShop();
 
   function handleClick(e, id) {
+    products.map((product) => {
+      return removeFromCart(product);
+      //   if (product.qty > 1) {
+      //     return removeQuantity(product);
+      //   } else {
+      //     return removeFromCart(product);
+      //   }
+    });
+  }
+
+  function add(e, id) {
+    products.map((product) => {
+      return updateQty(product);
+    });
+  }
+
+  function subtract(e, id) {
     products.map((product) => {
       if (product.qty > 1) {
         return removeQuantity(product);
@@ -18,7 +36,13 @@ function Cart() {
       <div key={product.id}>
         <p>{product.title}</p>
         <p>{product.price}</p>
-        <p>{product.qty}</p>
+        <div className="counter">
+          <button onClick={(e) => subtract(e, product.id)}>-</button>
+          <div className="counter--count">
+            <p>{product.qty}</p>
+          </div>
+          <button onClick={(e) => add(e, product.id)}>+</button>
+        </div>
         <p className="remove--item" onClick={(e) => handleClick(e, product.id)}>
           Remove Item
         </p>
