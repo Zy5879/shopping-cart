@@ -50,6 +50,24 @@ export function ShopProvider({ children }) {
     });
   }
 
+  function removeQuantity(product) {
+    const newArray = [...state.products];
+    newArray.map((item) => {
+      if (item.id === product.id) {
+        return item.qty--;
+      } else {
+        return newArray;
+      }
+    });
+    updatePrice(newArray);
+    dispatch({
+      type: "REMOVE_QTY",
+      payload: {
+        products: newArray,
+      },
+    });
+  }
+
   function updatePrice(products) {
     let total = 0;
     products.forEach((product) => (total += product.price * product.qty));
@@ -65,6 +83,7 @@ export function ShopProvider({ children }) {
     products: state.products,
     addToCart,
     removeFromCart,
+    removeQuantity,
     updateQty,
   };
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

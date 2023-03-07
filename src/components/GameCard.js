@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useShop from "../ShopContext";
 
 function GameCard({ title, price, id, qty }) {
-  const { products, addToCart, removeFromCart, updateQty } = useShop();
+  const { products, addToCart, updateQty } = useShop();
   const [isInCart, setInCart] = useState(false);
 
   useEffect(() => {
@@ -24,9 +24,6 @@ function GameCard({ title, price, id, qty }) {
       addToCart(product);
     }
   };
-
-  // const buttonCart = isInCart ? "Remove From Cart" : "Add To Cart";
-
   return (
     <>
       <p>{title}</p>

@@ -20,6 +20,13 @@ function shopReducer(state, action) {
         ...state,
         products: newArray,
       };
+    case "REMOVE_QTY":
+      console.log("REMOVE_QTY", payload);
+      const removeQty = [...state.products];
+      return {
+        ...state,
+        products: removeQty,
+      };
     case "REMOVE_FROM_CART":
       console.log("REMOVE_FROM_CART", payload);
       return {
