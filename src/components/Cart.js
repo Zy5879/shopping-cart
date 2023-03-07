@@ -7,28 +7,26 @@ function Cart() {
   function handleClick(e, id) {
     products.map((product) => {
       return removeFromCart(product);
-      //   if (product.qty > 1) {
-      //     return removeQuantity(product);
-      //   } else {
-      //     return removeFromCart(product);
-      //   }
     });
   }
 
   function add(e, id) {
     products.map((product) => {
-      return updateQty(product);
+      if (product.id === id) {
+        return updateQty(product);
+      } else {
+        return product;
+      }
     });
   }
 
   function subtract(e, id) {
-    products.map((product) => {
-      if (product.qty > 1) {
-        return removeQuantity(product);
-      } else {
-        return removeFromCart(product);
-      }
-    });
+    const grabproduct = products.find((product) => product.id === id);
+    if (grabproduct.qty > 1) {
+      return removeQuantity(grabproduct);
+    } else {
+      return removeFromCart(grabproduct);
+    }
   }
 
   const productmap = products.map((product) => {
