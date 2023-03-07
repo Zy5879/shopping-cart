@@ -13,6 +13,13 @@ function shopReducer(state, action) {
         ...state,
         products: payload.products,
       };
+    case "UPDATE_QTY":
+      console.log("UPDATE_QTY", payload);
+      const newArray = [...state.products];
+      return {
+        ...state,
+        products: newArray,
+      };
     case "REMOVE_FROM_CART":
       console.log("REMOVE_FROM_CART", payload);
       return {
@@ -24,6 +31,12 @@ function shopReducer(state, action) {
       return {
         ...state,
         total: payload.total,
+      };
+    case "UPDATE_QUANTITY":
+      console.log("UPDATE_QUANTITY", payload);
+      return {
+        ...state,
+        qty: payload.products.qty,
       };
     default:
       throw new Error(`No case for type ${type} found in shopReducer`);

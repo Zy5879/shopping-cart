@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import useShop from "../ShopContext";
 
-function GameCard({ title, price }) {
-  const { products, addToCart, removeFromCart } = useShop();
+function GameCard({ title, price, id, qty }) {
+  const { products, addToCart, removeFromCart, updateQty } = useShop();
   const [isInCart, setInCart] = useState(false);
 
   useEffect(() => {
@@ -16,22 +16,22 @@ function GameCard({ title, price }) {
   }, [products, title]);
 
   const handleClick = () => {
-    const product = { title, price };
+    const product = { title, price, id, qty };
 
     if (isInCart) {
-      removeFromCart(product);
+      updateQty(product);
     } else {
       addToCart(product);
     }
   };
 
-  const buttonCart = isInCart ? "Remove From Cart" : "Add To Cart";
+  // const buttonCart = isInCart ? "Remove From Cart" : "Add To Cart";
 
   return (
     <>
       <p>{title}</p>
       <p>{price}</p>
-      <button onClick={handleClick}>{buttonCart}</button>
+      <button onClick={handleClick}>Add To Cart</button>
     </>
   );
 }

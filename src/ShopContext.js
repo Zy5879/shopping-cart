@@ -5,6 +5,7 @@ const ShopContext = createContext(initialState);
 
 export function ShopProvider({ children }) {
   const [state, dispatch] = useReducer(shopReducer, initialState);
+  console.log(state);
 
   function addToCart(product) {
     const updatedCart = state.products.concat(product);
@@ -30,9 +31,28 @@ export function ShopProvider({ children }) {
     });
   }
 
+  function updateQty(product) {
+    const newArray = [...state.products];
+    newArray.map((item) => {
+      if (item.id === product.id) {
+        return item.qty++;
+      } else {
+        return newArray;
+      }
+    });
+    updatePrice(newArray);
+
+    dispatch({
+      type: "UPDATE_QTY",
+      payload: {
+        products: newArray,
+      },
+    });
+  }
+
   function updatePrice(products) {
     let total = 0;
-    products.forEach((product) => (total += product.price));
+    products.forEach((product) => (total += product.price * product.qty));
     dispatch({
       type: "UPDATE_PRICE",
       payload: {
@@ -45,6 +65,7 @@ export function ShopProvider({ children }) {
     products: state.products,
     addToCart,
     removeFromCart,
+    updateQty,
   };
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 }

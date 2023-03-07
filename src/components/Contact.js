@@ -1,7 +1,10 @@
+import github from "../images/github.svg";
+import linkedin from "../images/linkedin.svg";
 function Contact() {
   return (
     <>
-      <h1>This is Contact Page</h1>
+      <img src={github} alt="github-logo" width="40px" height="60px" />
+      <img src={linkedin} alt="github-logo" width="50px" height="60px" />
     </>
   );
 }
