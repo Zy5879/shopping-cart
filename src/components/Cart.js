@@ -49,7 +49,7 @@ function Cart() {
   });
 
   return (
-    <>
+    <div data-testid="cart">
       {products.length > 0 ? (
         <div>
           <h1>Total ${Math.round(total / 10) * 10}</h1>
@@ -60,7 +60,7 @@ function Cart() {
           <h1>Your Cart is Empty</h1>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

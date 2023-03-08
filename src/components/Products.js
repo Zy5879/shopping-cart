@@ -3,7 +3,7 @@ import GameCard from "./GameCard";
 
 function Products() {
   return (
-    <div>
+    <div data-testid="product-page">
       {games.map((item) => (
         <GameCard key={item.id} {...item} />
       ))}

@@ -17,7 +17,9 @@ function Navbar() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/products">Games</NavLink>
+          <NavLink to="/products" data-testid="games-link">
+            Games
+          </NavLink>
         </li>
         <li>
           <NavLink to="/contact">Contact</NavLink>

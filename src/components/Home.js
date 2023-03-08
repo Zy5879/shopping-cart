@@ -6,7 +6,9 @@ function Home() {
     <main>
       <div>
         <h1>Discover Games</h1>
-        <button onClick={() => navigate("/products")}>Game Catalog</button>
+        <button data-testid="btn1" onClick={() => navigate("/products")}>
+          Game Catalog
+        </button>
       </div>
     </main>
   );
