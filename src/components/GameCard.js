@@ -28,7 +28,9 @@ function GameCard({ title, price, id, qty }) {
     <>
       <p>{title}</p>
       <p>{price}</p>
-      <button onClick={handleClick}>Add To Cart</button>
+      <button onClick={handleClick} data-testid={id}>
+        Add To Cart
+      </button>
     </>
   );
 }

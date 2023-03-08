@@ -10,7 +10,7 @@ function Navbar() {
   const { products } = useShop();
   const cartLength = products.length > 0 ? products.length : "";
   return (
-    <>
+    <div className="page">
       <h1>Playstation Store</h1>
       <ul>
         <li>
@@ -25,7 +25,9 @@ function Navbar() {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li>
-          <NavLink to="/cart">Cart {cartLength}</NavLink>
+          <NavLink to="/cart" data-testid="cart-nav">
+            Cart {cartLength}
+          </NavLink>
         </li>
       </ul>
       <Routes>
@@ -34,7 +36,7 @@ function Navbar() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
