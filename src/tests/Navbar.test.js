@@ -1,46 +1,101 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Navbar from "../components/Navbar";
-import { MemoryRouter } from "react-router-dom";
+import App from "../App";
+import { BrowserRouter } from "react-router-dom";
 
-test("render contact component on click", async () => {
+beforeEach(() => {
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>;
+});
+
+test("renders home page on path", () => {
   render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   );
 
-  const buttonClick = screen.getByText(/Contact/i);
-  userEvent.click(buttonClick);
+  expect(screen.getByText(/Discover Games/i)).toBeInTheDocument();
+});
+
+test("renders products page on path", async () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+
+  userEvent.click(screen.getByTestId("games-link"));
+  await waitFor(() => {
+    expect(screen.getByTestId("product-page")).toBeInTheDocument();
+  });
+});
+
+test("renders cart page on path click", async () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  userEvent.click(screen.getByTestId("cart-nav"));
+
+  await waitFor(() => {
+    expect(screen.getByTestId("cart")).toBeInTheDocument();
+  });
+});
+test("renders contact page on path click", async () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  userEvent.click(screen.getByText(/Contact/i));
 
   await waitFor(() => {
     expect(screen.getByTestId("contact-page")).toBeInTheDocument();
   });
 });
 
-test("render product component on click", async () => {
-  render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>
-  );
+// });
+// test("render contact component on click", async () => {
+//   render(
+//     <MemoryRouter>
+//       <Navbar />
+//     </MemoryRouter>
+//   );
 
-  const buttonClick = screen.getByTestId("games-link");
-  userEvent.click(buttonClick);
-  await waitFor(() => {
-    expect(screen.getByTestId("product-page")).toBeInTheDocument();
-  });
-});
-test("render cart component on click", async () => {
-  render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>
-  );
+//   const buttonClick = screen.getByText(/Contact/i);
+//   userEvent.click(buttonClick);
 
-  const buttonClick = screen.getByText(/Cart/i);
-  userEvent.click(buttonClick);
-  await waitFor(() => {
-    expect(screen.getByTestId("cart")).toBeInTheDocument();
-  });
-});
+//   await waitFor(() => {
+//     expect(screen.getByTestId("contact-page")).toBeInTheDocument();
+//   });
+// });
+
+// test("render product component on click", async () => {
+//   render(
+//     <MemoryRouter>
+//       <Navbar />
+//     </MemoryRouter>
+//   );
+
+//   const buttonClick = screen.getByTestId("games-link");
+//   userEvent.click(buttonClick);
+//   await waitFor(() => {
+//     expect(screen.getByTestId("product-page")).toBeInTheDocument();
+//   });
+// });
+// test("render cart component on click", async () => {
+//   render(
+//     <MemoryRouter>
+//       <Navbar />
+//     </MemoryRouter>
+//   );
+
+//   const buttonClick = screen.getByTestId("cart-nav");
+//   userEvent.click(buttonClick);
+//   await waitFor(() => {
+//     expect(screen.getByTestId("cart")).toBeInTheDocument();
+//   });
+// });

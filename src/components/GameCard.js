@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useShop from "../ShopContext";
 
-function GameCard({ title, price, id, qty }) {
+function GameCard({ title, price, id, qty, img }) {
   const { products, addToCart, updateQty } = useShop();
   const [isInCart, setInCart] = useState(false);
 
@@ -25,13 +25,16 @@ function GameCard({ title, price, id, qty }) {
     }
   };
   return (
-    <>
-      <p>{title}</p>
-      <p>{price}</p>
-      <button onClick={handleClick} data-testid={id}>
-        Add To Cart
-      </button>
-    </>
+    <div className="bg-white shadow-lg rounded-sm">
+      <img className="w-full aspect-square rounded-sm" src={img} alt={title} />
+      <div className="p-3">
+        <p>{title}</p>
+        <p>${price}</p>
+        <button onClick={handleClick} data-testid={id}>
+          Add To Cart
+        </button>
+      </div>
+    </div>
   );
 }
 

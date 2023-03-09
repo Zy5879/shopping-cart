@@ -73,7 +73,7 @@ export default [
     id: 11,
     title: "Call of Duty: Modern Warfare 2",
     price: 69.99,
-    img: "https://static.wikia.nocookie.net/callofduty/images/2/27/ModernWarfareII_Keyart_MWII.jpg/revision/latest/scale-to-width-down/1200?cb=20220524163844",
+    img: "https://boardroom.tv/wp-content/uploads/2022/11/cod-mw-ii-alt.jpg",
     qty: 1,
   },
   {
