@@ -16,7 +16,7 @@ function GameCard({ title, price, id, qty, img }) {
   }, [products, title]);
 
   const handleClick = () => {
-    const product = { title, price, id, qty };
+    const product = { title, price, id, qty, img };
 
     if (isInCart) {
       updateQty(product);
@@ -28,9 +28,13 @@ function GameCard({ title, price, id, qty, img }) {
     <div className="bg-white shadow-lg rounded-sm">
       <img className="w-full aspect-square rounded-sm" src={img} alt={title} />
       <div className="p-3">
-        <p>{title}</p>
-        <p>${price}</p>
-        <button onClick={handleClick} data-testid={id}>
+        <p className="text-sm">{title}</p>
+        <p className="text-sm mb-3">${price}</p>
+        <button
+          className="p-2 border-2 border-orange-700 text-orange-700 rounded-sm"
+          onClick={handleClick}
+          data-testid={id}
+        >
           Add To Cart
         </button>
       </div>

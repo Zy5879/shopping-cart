@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         fluid: "repeat(auto-fit, minmax(250px, 1fr))",
+        cart: "repeat(auto-fit, minmax(250px,350px))",
       },
     },
   },

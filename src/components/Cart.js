@@ -31,7 +31,12 @@ function Cart() {
 
   const productmap = products.map((product) => {
     return (
-      <div key={product.id}>
+      <div className="bg-white" key={product.id}>
+        <img
+          className="w-full aspect-square rounded-sm"
+          src={product.img}
+          alt={product.title}
+        />
         <p>{product.title}</p>
         <p>{product.price}</p>
         <div className="counter">
@@ -49,15 +54,19 @@ function Cart() {
   });
 
   return (
-    <div data-testid="cart">
+    <div className=" w-full h-screen bg-slate-100" data-testid="cart">
       {products.length > 0 ? (
         <div>
-          <h1>Total ${Math.round(total / 10) * 10}</h1>
-          {productmap}
+          <h1 className="text-center text-3xl font-bold p-3">
+            Estimated Total: ${Math.round(total / 10) * 10}
+          </h1>
+          <div className="p-3 gap-4 grid grid-cols-cart">{productmap}</div>
         </div>
       ) : (
         <div className="empty--cart">
-          <h1>Your Cart is Empty</h1>
+          <h1 className="text-center text-3xl font-bold p-3">
+            Your Cart is Empty
+          </h1>
         </div>
       )}
     </div>

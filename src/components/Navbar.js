@@ -6,7 +6,7 @@ function Navbar() {
   const { products } = useShop();
   const cartLength = products.length > 0 ? products.length : "";
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="bg-zinc-900 text-white">
       <div className="flex p-6">
         <h1 className="mr-auto">Playstation Store</h1>
         {/* <div> */}
