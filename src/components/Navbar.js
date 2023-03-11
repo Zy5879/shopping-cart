@@ -5,6 +5,7 @@ import useShop from "../ShopContext";
 function Navbar() {
   const { products } = useShop();
   const cartLength = products.length > 0 ? products.length : "";
+
   return (
     <header className="bg-zinc-900 text-white">
       <div className="flex p-6">
@@ -27,9 +28,9 @@ function Navbar() {
           </NavLink>
           {/* </li>
             <li> */}
-          <NavLink to="/contact" className="hover:underline decoration-sky-500">
+          {/* <NavLink to="/contact" className="hover:underline decoration-sky-500">
             Contact
-          </NavLink>
+          </NavLink> */}
           {/* </li>
             <li> */}
           <NavLink

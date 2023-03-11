@@ -44,19 +44,6 @@ test("renders cart page on path click", async () => {
     expect(screen.getByTestId("cart")).toBeInTheDocument();
   });
 });
-test("renders contact page on path click", async () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  userEvent.click(screen.getByText(/Contact/i));
-
-  await waitFor(() => {
-    expect(screen.getByTestId("contact-page")).toBeInTheDocument();
-  });
-});
-
 // });
 // test("render contact component on click", async () => {
 //   render(

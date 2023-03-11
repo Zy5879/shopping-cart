@@ -31,24 +31,39 @@ function Cart() {
 
   const productmap = products.map((product) => {
     return (
-      <div className="bg-white" key={product.id}>
+      <div className="bg-white shadow-lg" key={product.id}>
         <img
           className="w-full aspect-square rounded-sm"
           src={product.img}
           alt={product.title}
         />
-        <p>{product.title}</p>
-        <p>{product.price}</p>
-        <div className="counter">
-          <button onClick={(e) => subtract(e, product.id)}>-</button>
-          <div className="counter--count">
-            <p>{product.qty}</p>
+        <div className="p-3 rounded-sm">
+          <p>{product.title}</p>
+          <p>{product.price}</p>
+          <div className="flex items-center mt-2 ">
+            <button
+              className="mr-2 text-base"
+              onClick={(e) => subtract(e, product.id)}
+            >
+              -
+            </button>
+            <div className="counter--count">
+              <p>{product.qty}</p>
+            </div>
+            <button
+              className="ml-2 text-base"
+              onClick={(e) => add(e, product.id)}
+            >
+              +
+            </button>
           </div>
-          <button onClick={(e) => add(e, product.id)}>+</button>
+          <button
+            className=" mt-3 p-2 border-2 border-orange-700 text-orange-700 rounded-sm"
+            onClick={(e) => handleClick(e, product.id)}
+          >
+            Remove
+          </button>
         </div>
-        <p className="remove--item" onClick={(e) => handleClick(e, product.id)}>
-          Remove Item
-        </p>
       </div>
     );
   });
@@ -63,7 +78,7 @@ function Cart() {
           <div className="p-3 gap-4 grid grid-cols-cart">{productmap}</div>
         </div>
       ) : (
-        <div className="empty--cart">
+        <div className="bg-slate-100 w-full h-screen">
           <h1 className="text-center text-3xl font-bold p-3">
             Your Cart is Empty
           </h1>
