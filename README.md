@@ -12,7 +12,7 @@ A Shopping Cart App inspired by the Playstion Store
 
 #
 
-## OVERVIEW
+OVERVIEW
 
 - Simple user interface
 - Can add and remove games from cart
@@ -25,16 +25,16 @@ A Shopping Cart App inspired by the Playstion Store
 
 #
 
-## LIVE LINK
+LIVE LINK
 
 [CLICK HERE]()
 
 #
 
-## TECH USED
+TECH USED
 
 [![My Tech Stack](https://github-readme-tech-stack.vercel.app/api/cards?title=TECH&lineCount=1&gap=3&line1=react,react,343cde;tailwind,tailwind,5babe2;react%20testing%20library,react%20testing%20library,4dfb6c;jest,jest,6e2c44;)](https://github-readme-tech-stack.vercel.app/api/cards?title=TECH&lineCount=1&gap=3&line1=react,react,343cde;tailwind,tailwind,5babe2;react%20testing%20library,react%20testing%20library,4dfb6c;jest,jest,6e2c44;)
 
 #
 
-## ENJOY
+ENJOY
