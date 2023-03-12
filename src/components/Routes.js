@@ -1,7 +1,6 @@
 import Products from "./Products";
 import Home from "./Home";
 import Cart from "./Cart";
-// import Contact from "./Contact";
 import { Route, Routes } from "react-router-dom";
 
 function RouteProvider() {
